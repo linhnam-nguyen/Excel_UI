@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BH.UI.Excel.Addin"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="LightSteelBlue">
+        <TextBlock Text="Explore Panel Loaded" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

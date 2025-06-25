@@ -41,7 +41,7 @@ namespace BH.UI.Excel.Addin
         /**** Methods                           ****/
         /*******************************************/
 
-        public void OnToggleTaskPane(IRibbonControl control, bool pressed)
+        public void OnToggleTaskPane(IRibbonControl control)
         {
             CustomTaskPane pane = AddIn.TaskPane;
 

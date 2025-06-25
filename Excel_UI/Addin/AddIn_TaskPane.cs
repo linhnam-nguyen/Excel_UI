@@ -20,17 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
-using System;
-using System.IO;
-using System.Reflection;
-using System.Linq;
-using ExcelDna.Integration;
-using System.Collections.Generic;
-using System.Collections;
-using BH.oM.Base;
-using ExcelDna.Integration.CustomUI;
-using System.Windows.Forms.Integration;
 using BH.UI.Excel.Addin;
+using ExcelDna.Integration;
+using ExcelDna.Integration.CustomUI;
+using System;
+using System.Windows.Forms;
+using System.Windows.Forms.Integration;
+
 
 namespace BH.UI.Excel
 {
@@ -45,14 +41,27 @@ namespace BH.UI.Excel
         {
             if (TaskPane == null)
             {
-                var wpfControl = new ExplorePanel();
+                System.Windows.Controls.UserControl wpfControl = new ExplorePanel();
+
                 var host = new ElementHost
                 {
                     Child = wpfControl,
-                    Dock = System.Windows.Forms.DockStyle.Fill
+                    Dock = DockStyle.Fill
                 };
 
-                TaskPane = CustomTaskPaneFactory.CreateCustomTaskPane(host, "My WPF Task Pane");
+                var panel = new System.Windows.Forms.UserControl();
+                panel.Controls.Add(host);
+
+
+                try
+                {
+                    TaskPane = CustomTaskPaneFactory.CreateCustomTaskPane(panel, "BHoM Explorer");
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show($"Error creating task pane: {ex.Message}");
+                    return;
+                }
             }
 
             TaskPane.Visible = show;

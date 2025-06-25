@@ -21,23 +21,19 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Runtime.InteropServices;
 
 namespace BH.UI.Excel.Addin
 {
-    public partial class ExplorePanel : UserControl
+    public interface ITaskPane
+    {
+
+    }
+
+    [ComVisible(true)]
+    [Guid("03C1E99A-E2A2-4829-BCFE-AA8C03ACF0B9")]
+    [ComDefaultInterface(typeof(ITaskPane))]
+    public partial class ExplorePanel : System.Windows.Controls.UserControl, ITaskPane
     {
         public ExplorePanel()
         {
