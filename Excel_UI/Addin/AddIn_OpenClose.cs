@@ -81,6 +81,13 @@ namespace BH.UI.Excel
                     m_WorkbookOpeningHandler = null;
                 }
 
+                // Unload the task pane if it exists
+                if (TaskPane != null)
+                {
+                    TaskPane.Delete();
+                    TaskPane = null;
+                }
+
                 // Unregister COM
                 ComServer.DllUnregisterServer();
             }

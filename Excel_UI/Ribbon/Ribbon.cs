@@ -50,6 +50,7 @@ namespace BH.UI.Excel.Addin
                 <button id='expand' onAction='RunExpand' label='Expand list' imageMso='OutlineExpandAll' supertip='Take a list stored in a single cell and expand over multiple cells (one cell per item in the list).'/>
                 <button id='condense' onAction='RunCondense' label='Condense cells' imageMso='CollapseAll' supertip='Take a group of cells and store their content as a list in a single cell.'/>
                 <button id='internalise' onAction='Internalise' label='Internalise data' imageMso='RecordsSaveRecord' supertip='Save the value of the selected cells so that the values will be available when the file is reopened.' />
+                <button id='taskPane' label='BHoM SidePanel' imageMso='AdvancedFileProperties' onAction='OnToggleTaskPane' getPressed='GetPanePressed'/>
             </group>
             <group id='help' label='Help'>
                 <button id='xlwiki' onAction='OpenLink' size='large' label='BHoM Excel Wiki' imageMso='Help' tag='{BH.Engine.Excel.Query.ExcelUIWiki()}' supertip='Go to the BHoM Excel plugin wiki to view help documentation relating to this plugin.' />

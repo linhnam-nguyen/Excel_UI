@@ -86,6 +86,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\libs\office.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Reflection_Engine">
       <SpecificVersion>False</SpecificVersion>
@@ -101,6 +102,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -122,11 +124,14 @@
       <HintPath>C:\ProgramData\BHoM\Assemblies\Versioning_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addin\AddIn_BackwardCompatibility.cs" />
     <Compile Include="Addin\AddIn_Formulas.cs" />
     <Compile Include="Addin\AddIn_Converts.cs" />
+    <Compile Include="Addin\AddIn_TaskPane.cs" />
     <Compile Include="Addin\AddIn_Workbook.cs" />
     <Compile Include="Addin\AddIn_Internalise.cs" />
     <Compile Include="Addin\AddIn_GlobalSearch.cs" />
@@ -137,6 +142,7 @@
     <Compile Include="Components\Engine\GetEvents.cs" />
     <Compile Include="Ribbon\Ribbon_Condense.cs" />
     <Compile Include="Ribbon\Ribbon_Expand.cs" />
+    <Compile Include="Ribbon\Ribbon_TaskPane.cs" />
     <Compile Include="Ribbon\Ribbon_Internalise.cs" />
     <Compile Include="Ribbon\Ribbon.cs" />
     <Compile Include="Caller\CallerFormula_Run.cs" />
@@ -167,6 +173,9 @@
     <Compile Include="Components\Engine\SetProperty.cs" />
     <Compile Include="Components\Engine\ToJson.cs" />
     <Compile Include="Components\oM\CreateData.cs" />
+    <Compile Include="TaskPanes\ExplorePanel.xaml.cs">
+      <DependentUpon>ExplorePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Templates\CallerValueListFormula.cs" />
     <Compile Include="Templates\FormulaDataAccessor.cs" />
     <Compile Include="Components\oM\CreateCustom.cs" />
@@ -205,6 +214,12 @@
       <Project>{56039ed6-fbd5-4f45-936b-2116399aeec3}</Project>
       <Name>ExcelUI_Engine</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="TaskPanes\ExplorePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
