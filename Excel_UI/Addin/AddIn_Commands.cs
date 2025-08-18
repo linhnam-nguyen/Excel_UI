@@ -90,13 +90,13 @@ namespace BH.UI.Excel
 
         /*******************************************/
 
-        public static void Execute(string command, Range objects)
+        public static void Execute(string command, Range sentObjects, string targetProperty)
         {
             Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapter.Commands.{command}");
             dynamic runCommand = Activator.CreateInstance(commandType);
 
             List<IObject> target = new List<IObject>();
-            foreach (Range cell in objects)
+            foreach (Range cell in sentObjects)
             {
                 object value = cell.Value;
                 if (value != null)
@@ -113,7 +113,7 @@ namespace BH.UI.Excel
                 return;
             }
 
-            commandType.GetProperty("Identifiers")?.SetValue(runCommand, target);
+            commandType.GetProperty(targetProperty)?.SetValue(runCommand, target);
 
             m_Adapter.Execute(runCommand,actionConfig : null);
 
