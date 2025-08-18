@@ -45,7 +45,7 @@ namespace BH.UI.Excel.Addin
         {
             Application app = ExcelDnaUtil.Application as Application;
             string command = "Isolate";
-            AddIn.Execute(command, app.Selection as Range, "Targets");
+            AddIn.Execute<object>(command, app.Selection as Range, "Targets");
         }
 
         /*******************************************/

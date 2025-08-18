@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
+using BH.oM.Base;
 using BH.UI.Excel.Templates;
 using ExcelDna.Integration;
 using ExcelDna.Integration.CustomUI;
@@ -45,7 +46,7 @@ namespace BH.UI.Excel.Addin
         {
             Application app = ExcelDnaUtil.Application as Application;
             string command = "DirectPush";
-            AddIn.Execute(command, app.Selection as Range, "ObjectsToPush");
+            AddIn.Execute<IObject>(command, app.Selection as Range, "ObjectsToPush");
         }
 
         /*******************************************/

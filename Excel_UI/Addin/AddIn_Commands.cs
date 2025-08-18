@@ -90,21 +90,28 @@ namespace BH.UI.Excel
 
         /*******************************************/
 
-        public static void Execute(string command, Range sentObjects, string targetProperty)
+        public static void Execute<TargetType>(string command, Range sentObjects, string targetProperty)
         {
             Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapter.Commands.{command}");
             dynamic runCommand = Activator.CreateInstance(commandType);
 
-            List<IObject> target = new List<IObject>();
+            List<TargetType> target = new List<TargetType>();
             foreach (Range cell in sentObjects)
             {
                 object value = cell.Value;
                 if (value != null)
                 {
-                    // Store the item if exists
-                    string id = GetId(cell.Value as string);
-                    object item = GetObject(id);
-                    target.Add(item as IObject);
+                    object item;
+                    if (value is double d && d == Math.Floor(d))
+                    {
+                        item = (int) d;
+                    }
+                    else
+                    {
+                        string id = GetId(cell.Value as string);
+                        item = GetObject(id);
+                    }
+                    if (item is TargetType t) target.Add(t);
                 }
             }
 
