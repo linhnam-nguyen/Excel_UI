@@ -41,11 +41,11 @@ namespace BH.UI.Excel.Addin
         /**** Methods                           ****/
         /*******************************************/
 
-        public void DirectPull(IRibbonControl control)
+        public void PullSelection(IRibbonControl control)
         {
             Application app = ExcelDnaUtil.Application as Application;
             Range target = (app.Selection as Range)[1];
-            string command = "DirectPull";
+            string command = "PullSelection";
             string result = AddIn.Execute(command);
             ExcelAsyncUtil.QueueAsMacro(() =>
             {

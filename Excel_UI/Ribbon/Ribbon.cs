@@ -48,7 +48,7 @@ namespace BH.UI.Excel.Addin
             <group id='quick' label='Quick Commands'>
                 <button id='select' onAction='Select' size='large' label='Select BHoMObject' imageMso='ObjectsMultiSelect' supertip='Select BHoM Object on Connected Application UI.' />
                 <button id='isolate' onAction='Isolate' size='large' label='Isolate BHoMObject' imageMso='MarginsAdjust' supertip='Isolate selectable BHoMObject on Connected Application UI.'/>
-                <button id='directPull' onAction='DirectPull' size='large' label='Direct Pull From App' imageMso='MarkToDownloadMessageCopy' supertip='Quick pull elements from External Application.'/>
+                <button id='directPull' onAction='PullSelection' size='large' label='Direct Pull From App' imageMso='MarkToDownloadMessageCopy' supertip='Quick pull elements from External Application.'/>
                 <button id='directPush' onAction='DirectPush' size='large' label='Direct Push To App' imageMso='BlogPublishMenu' supertip='Quick push BHoMObjects to External Application.'/>
                 <box id='adapterBox' boxStyle='horizontal'>
                     <button id='setAdapter' size='normal' label='Adapter' onAction='SetAdapter' imageMso='SetupClassicOffline' supertip='Establish connection configuration to External Application. Select Cell of Adapter Object' />
