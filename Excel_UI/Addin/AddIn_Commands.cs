@@ -92,7 +92,7 @@ namespace BH.UI.Excel
 
         public static void Execute<TargetType>(string command, Range sentObjects, string targetProperty)
         {
-            Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapter.Commands.{command}");
+            Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapters.Revit.Commands.{command}");
             dynamic runCommand = Activator.CreateInstance(commandType);
 
             List<TargetType> target = new List<TargetType>();
@@ -130,7 +130,7 @@ namespace BH.UI.Excel
 
         public static string Execute(string command)
         {
-            Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapter.Commands.{command}");
+            Type commandType = BH.Engine.Base.Create.Type($"BH.oM.Adapters.Revit.Commands.{command}");
             dynamic runCommand = Activator.CreateInstance(commandType);
             var output = m_Adapter.Execute(runCommand, actionConfig: null);
 
