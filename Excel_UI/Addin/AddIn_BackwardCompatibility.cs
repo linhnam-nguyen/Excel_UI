@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Collections;
 using BH.UI.Excel.Templates;
 using Microsoft.Office.Interop.Excel;
+using Range = Microsoft.Office.Interop.Excel.Range;
 
 namespace BH.UI.Excel
 {

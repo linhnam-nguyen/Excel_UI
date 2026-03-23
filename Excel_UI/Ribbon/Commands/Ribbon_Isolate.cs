@@ -32,6 +32,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Range = Microsoft.Office.Interop.Excel.Range;
 
 namespace BH.UI.Excel.Addin
 {

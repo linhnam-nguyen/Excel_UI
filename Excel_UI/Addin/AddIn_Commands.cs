@@ -25,6 +25,7 @@ using BH.oM.Base;
 using ExcelDna.Integration;
 using Microsoft.Office.Interop.Excel;
 using System;
+using Range = Microsoft.Office.Interop.Excel.Range;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;

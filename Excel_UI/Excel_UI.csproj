@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-<TargetFramework>net472</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
+	<RollForward>Major</RollForward>
     <OutputType>Library</OutputType>
     <RootNamespace>BH.UI.Excel</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
@@ -79,17 +80,17 @@
       <HintPath>$(ProgramData)\BHoM\Assemblies\Versioning_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="office">
-      <HintPath>..\libs\office.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
+	  <Reference Include="office">
+		  <HintPath>..\libs\office.dll</HintPath>
+		  <EmbedInteropTypes>False</EmbedInteropTypes>
+	  </Reference>
     <PackageReference Include="ExcelDna.AddIn" Version="1.9.0" />
-    <PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
     <PackageReference Include="ExcelDna.Integration" Version="1.9.0" />
-    <PackageReference Include="ExcelDna.IntelliSense" Version="1.1.0" />
+    <PackageReference Include="ExcelDna.IntelliSense" Version="1.9.0" />
     <PackageReference Include="ExcelDna.Registration" Version="1.9.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" EmbedInteropTypes="true" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" EmbedInteropTypes="true" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>

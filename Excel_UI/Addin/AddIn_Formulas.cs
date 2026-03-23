@@ -35,6 +35,7 @@ using BH.UI.Excel.Templates;
 using BH.oM.Base;
 using BH.UI.Excel.Components;
 using BH.oM.Versioning;
+using Range = Microsoft.Office.Interop.Excel.Range;
 
 using BH.Engine.Serialiser;
 
