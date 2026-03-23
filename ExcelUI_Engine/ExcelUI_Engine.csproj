@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
-	<RollForward>Major</RollForward>
     <OutputType>Library</OutputType>
     <RootNamespace>BH.Engine.Excel</RootNamespace>
     <OutputPath>..\Build\</OutputPath>
