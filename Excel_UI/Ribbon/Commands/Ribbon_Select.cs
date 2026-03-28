@@ -45,7 +45,8 @@ namespace BH.UI.Excel.Addin
         {
             Application app = ExcelDnaUtil.Application as Application;
             string command = "Select";
-            AddIn.Execute<object>(command, app.Selection as Range, "Targets");
+            Range selection = app.Selection as Range;
+            AddIn.Execute<object>(command, selection.SpecialCells(XlCellType.xlCellTypeVisible), "Targets");
         }
 
         /*******************************************/

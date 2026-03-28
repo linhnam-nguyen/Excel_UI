@@ -53,6 +53,19 @@ namespace BH.UI.Excel.Addin
                 <box id='adapterBox' boxStyle='horizontal'>
                     <button id='setAdapter' size='normal' label='Adapter' onAction='SetAdapter' imageMso='SetupClassicOffline' supertip='Establish connection configuration to External Application. Select Cell of Adapter Object' />
                     <editBox  id='adapterName' getText='GetAdapterName' enabled='false' supertip='Adapter in current use' />
+                    <dropDown id='adapterSelector' label='Adapter:' 
+                              getItemCount='GetAdapterCount' 
+                              getItemLabel='GetAdapterLabel' 
+                              onAction='OnAdapterChange' 
+                              getSelectedItemIndex='GetSelectedAdapterIndex' />
+              
+                    <toggleButton id='toggleEdit' label='Edit mode' 
+                                  imageMso='DirectSelectionTool' 
+                                  onAction='OnToggleEdit' />
+                  
+                    <toggleButton id='toggleConnect' label='Live' 
+                                  imageMso='pivottableConnect' 
+                                  onAction='OnToggleConnect' />
                 </box>
             </group>
             {GetRibbonXml()}
