@@ -46,7 +46,24 @@ namespace BH.UI.Excel.Addin
         {
             Application app = ExcelDnaUtil.Application as Application;
             string command = "DirectPush";
-            AddIn.Execute<IObject>(command, app.Selection as Range, "ObjectsToPush");
+
+            Range selection = app.Selection as Range;
+
+            if (selection == null) return;
+
+            Range targets;
+
+            if (selection.Count == 1)
+            {
+                targets = selection;
+            }
+            else
+            {
+                targets = selection.SpecialCells(XlCellType.xlCellTypeVisible);
+            }
+
+            if (targets != null)
+            { AddIn.Execute<IObject>(command, targets, "ObjectsToPush"); }
         }
 
         /*******************************************/
