@@ -54,5 +54,49 @@ namespace BH.UI.Excel.Addin
         }
 
         /*******************************************/
+        /**** DropDown Callbacks                ****/
+        /*******************************************/
+
+        public int GetAdapterCount(IRibbonControl control)
+        {
+            _adapters = AddIn.GetAvailableAdapters();
+            return _adapters.Count;
+        }
+
+        public string GetAdapterLabel(IRibbonControl control, int index)
+        {
+            return _adapters[index];
+        }
+
+        public int GetSelectedAdapterIndex(IRibbonControl control)
+        {
+            return AddIn.GetSelectedAdapterIndex();
+        }
+
+        public void OnAdapterChange(IRibbonControl control, string id, int index)
+        {
+            AddIn.SetAdapter(_adapters[index]);
+            _ribbon.InvalidateControl("adapterName");
+        }
+
+        /*******************************************/
+
+        public void OnToggleConnect(IRibbonControl control, bool pressed)
+        {
+            this._isLive = pressed;
+            AddIn.SetAdapterStatus(pressed);
+            _ribbon.InvalidateControl("adapterName");
+        }
+
+        public bool GetConnectState(IRibbonControl control)
+        {
+            return this._isLive;
+        }
+
+        /*******************************************/
+        /**** Private Fields                   *****/
+        /*******************************************/
+        private List<string> _adapters = new List<string>();
+        private bool _isLive = false;
     }
 }

@@ -37,58 +37,6 @@ namespace BH.UI.Excel
         /*******************************************/
         /**** Public Methods                    ****/
         /*******************************************/
-        public static void SetAdapter(Range selection)
-        {
-            if(selection.Count != 1)
-            {
-                BH.Engine.Base.Compute.RecordError("Only one Adapter is accepted !");
-                return;
-            }
-
-            object value = selection.Value;
-
-            if (value == null)
-            {
-                m_Adapter = null;
-                return;
-            }
-
-            object obj = GetObject(value as string);
-
-            if (obj == null)
-            {
-                m_Adapter = null;
-                return;
-            }
-
-            BHoMAdapter adapter = obj as BHoMAdapter;
-
-            if (adapter != null) 
-            {
-                m_Adapter = adapter;
-                m_AdapterName = selection.Value as string;
-            }
-            else
-            {
-                m_Adapter = null;
-            }
-        }
-
-        /*******************************************/
-
-        public static string GetAdapterName()
-        {
-            if (m_Adapter != null)
-            {
-                return m_AdapterName;
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
-        /*******************************************/
 
         public static void Execute<TargetType>(string command, Range sentObjects, string targetProperty)
         {
@@ -165,10 +113,6 @@ namespace BH.UI.Excel
         }
 
         /*******************************************/
-        /**** Private Fields                   *****/
-        /*******************************************/
-        private static BHoMAdapter m_Adapter;
-        private static string m_AdapterName = string.Empty;
     }
 }
 

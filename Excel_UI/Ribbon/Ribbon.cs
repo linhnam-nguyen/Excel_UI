@@ -50,22 +50,22 @@ namespace BH.UI.Excel.Addin
                 <button id='isolate' onAction='Isolate' size='large' label='Isolate BHoMObject' imageMso='MarginsAdjust' supertip='Isolate selectable BHoMObject on Connected Application UI.'/>
                 <button id='directPull' onAction='PullSelection' size='large' label='Pull Selected Objects' imageMso='MarkToDownloadMessageCopy' supertip='Quick pull elements from External Application.'/>
                 <button id='directPush' onAction='DirectPush' size='large' label='Direct Push To App' imageMso='BlogPublishMenu' supertip='Quick push BHoMObjects to External Application.'/>
-                <box id='adapterBox' boxStyle='horizontal'>
-                    <button id='setAdapter' size='normal' label='Adapter' onAction='SetAdapter' imageMso='SetupClassicOffline' supertip='Establish connection configuration to External Application. Select Cell of Adapter Object' />
-                    <editBox  id='adapterName' getText='GetAdapterName' enabled='false' supertip='Adapter in current use' />
-                    <dropDown id='adapterSelector' label='Adapter:' 
-                              getItemCount='GetAdapterCount' 
-                              getItemLabel='GetAdapterLabel' 
-                              onAction='OnAdapterChange' 
-                              getSelectedItemIndex='GetSelectedAdapterIndex' />
-              
-                    <toggleButton id='toggleEdit' label='Edit mode' 
-                                  imageMso='DirectSelectionTool' 
-                                  onAction='OnToggleEdit' />
-                  
-                    <toggleButton id='toggleConnect' label='Live' 
-                                  imageMso='pivottableConnect' 
-                                  onAction='OnToggleConnect' />
+            </group>
+            <group id='adapter' label='Quick Adapter'>
+                <box id='adapterSBox' boxStyle='vertical'>
+                    <editBox  id='adapterName' label='Adapter' getText='GetAdapterName' enabled='false' supertip='Adapter in current use' />
+                    <box id='adapterMBox' boxStyle='horizontal'>
+                        <toggleButton id='toggleConnect' supertip='Enable Connection' 
+                                        imageMso='TextBoxLinkCreate' 
+                                        onAction='OnToggleConnect'
+                                        getPressed='GetConnectState'/>
+                        <button id='setAdapter' size='normal' onAction='SetAdapter' imageMso='SetupClassicOffline' supertip='Establish connection configuration to External Application. Select Cell of Adapter Object' />
+                        <dropDown id='adapterSelector' 
+                                    getItemCount='GetAdapterCount' 
+                                    getItemLabel='GetAdapterLabel' 
+                                    onAction='OnAdapterChange' 
+                                    getSelectedItemIndex='GetSelectedAdapterIndex' />
+                    </box>
                 </box>
             </group>
             {GetRibbonXml()}
