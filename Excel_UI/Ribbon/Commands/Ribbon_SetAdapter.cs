@@ -46,6 +46,7 @@ namespace BH.UI.Excel.Addin
             Application app = ExcelDnaUtil.Application as Application;
             AddIn.SetAdapter(app.Selection as Range);
             _ribbon.InvalidateControl("adapterName");
+            _ribbon.InvalidateControl("adapterSelector");
         }
 
         public string GetAdapterName(IRibbonControl control)
@@ -76,6 +77,7 @@ namespace BH.UI.Excel.Addin
         public void OnAdapterChange(IRibbonControl control, string id, int index)
         {
             AddIn.SetAdapter(_adapters[index]);
+            _adapters = AddIn.GetAvailableAdapters();
             _ribbon.InvalidateControl("adapterName");
         }
 
@@ -85,6 +87,7 @@ namespace BH.UI.Excel.Addin
         {
             this._isLive = pressed;
             AddIn.SetAdapterStatus(pressed);
+            _adapters = AddIn.GetAvailableAdapters();
             _ribbon.InvalidateControl("adapterName");
         }
 
